@@ -1,1 +1,16 @@
-/var/www/html/magento9/vendor/magento/module-ui/view/frontend/web/templates/form/element/input.html
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<input class="input-text" placeholder=" " type="text"  data-bind="
+    value: value,
+    valueUpdate: 'keyup',
+    attr: {
+        name: inputName,
+        'aria-describedby': getDescriptionId(),
+        'aria-required': required,
+        'aria-invalid': error() ? true : 'false',
+        id: uid,
+    }" />

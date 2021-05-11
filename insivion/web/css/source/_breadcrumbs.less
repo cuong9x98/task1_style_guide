@@ -1,1 +1,50 @@
-/var/www/html/magento9/vendor/magento/theme-frontend-luma/web/css/source/_breadcrumbs.less
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .breadcrumbs {
+        .lib-breadcrumbs();
+    }
+    .breadcrumbs {
+        .home  {
+            a {
+                color: @color-gray20;
+                font-size: 10px;
+                letter-spacing: 0;
+                line-height: 16px;
+                font-family: @font-family-name__base;
+            }
+            &:after {
+                color: @color-gray80;
+                font-size: 9px;
+                letter-spacing: 0;
+                line-height: 9px;
+                text-align: center;
+            }
+        }
+        .product{
+            font-family: @font-family-name__base;
+            font-size: 10px;
+            letter-spacing: 0;
+            line-height: 16px;
+            color: @color-gray60;
+        }
+        
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .breadcrumbs {
+        display: none;
+    }
+}
