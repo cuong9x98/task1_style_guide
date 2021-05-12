@@ -55,6 +55,39 @@
             }
         }
     }
+    .label1 {
+        border-radius: 3px;
+        background-color: #00AFF0;
+        color: @color-white;
+        font-family: @font-family-name__base;
+        font-size: 10px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 7px;
+        padding: 5px;
+    }
+    .label2 {
+        border-radius: 3px;
+        background-color: #003A64;
+        color: @color-white;
+        font-family: @font-family-name__base;
+        font-size: 10px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 7px;
+        padding: 5px;
+    }
+    .label3 {
+        border-radius: 3px;
+        background-color: #2C3E50;
+        color: @color-white;
+        font-family: @font-family-name__base;
+        font-size: 10px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 7px;
+        padding: 5px;
+    }
     .field {
         .control {
             position: relative;
@@ -72,7 +105,7 @@
                 box-sizing: border-box;
                 height: 48px;
                 width: 270px;
-                border: 1px solid #E4E4E4;
+                border: 1px solid @color-gray-middle1;
                 border-radius: 3px;
                 background-color: @color-white;
                 
@@ -96,8 +129,7 @@
                 border-radius: 3px;
                 background-color: @color-white;
             }
-            .input-text:not(placeholder-shown) +label {
-                
+            .input-text:placeholder-shown +label   {
             } 
             .input-text:disabled +label{
                 top: -10px;
@@ -144,9 +176,9 @@
                 box-sizing: border-box;
                 height: 48px;
                 width: 270px;
-                border: 1px solid #E4E4E4;
+                border: 1px solid @color-gray-middle1;
                 border-radius: 3px;
-                background-color: #FFFFFF;
+                background-color: @color-white;
 
                 color: #58585A;
                 font-family: @font-family-name__base;
@@ -155,13 +187,72 @@
                 line-height: 20px;
             }
         }
-        
-        
-        
-        
     }
-
-    .legend + .fieldset,
+    //Checkbox
+    input[type="checkbox"] +label {
+        display: block;
+        color: #58585A;
+        font-family: @font-family-name__base;
+        font-size: 13px;
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-bottom: 5px;
+    }
+    input[type="checkbox"] {
+        display: none;
+    }
+    input[type="checkbox"] +label:before {
+        content: "";
+        height: 20px;
+        width: 20px;
+        margin-right: 5px;
+        border-radius: 3px;
+        background-color: #EFF1F5;
+        display: inline-block;
+        border: 0px;
+        vertical-align: bottom;
+    }
+    input[type="checkbox"]:checked +label:before {
+        background: transparent url(../images/checkbox1.png) no-repeat left 0 top 0;
+    }
+     input[type="checkbox"]:checked:disabled +label:before {
+         background: transparent url(../images/checkbox_disable.png) no-repeat left 0 top 0;
+     }
+     //Radio
+    input[type="radio"] +label {
+        display: block;
+        color: #58585A;
+        font-family: @font-family-name__base;
+        font-size: 13px;
+        letter-spacing: 0;
+        line-height: 20px;
+        margin-bottom: 5px;
+    }
+    input[type="radio"] {
+        display: none;
+    }
+    input[type="radio"] +label:before {
+        content: "";
+        height: 20px;
+        width: 20px;
+        margin-right: 5px;
+        border-radius: 50%;
+        background-color: @color-white;
+        border: 1px solid @color-gray-middle1;
+        display: inline-block;
+        vertical-align: bottom;
+    }
+    input[type="radio"]:checked +label:before {
+        background: transparent url(../images/ba.png) no-repeat left 0 top 0;
+    }
+    input[type="radio"]:disabled +label:before {    
+        border: 1px solid @color-gray-middle1;
+        background-color: @color-gray95;
+    }
+    input[type="radio"]:checked:disabled +label:before {
+        background: transparent url(../images/rc.png) no-repeat left 0 top 0;
+    }
+    .legend + .fieldset, 
     .legend + div {
         clear: both;
     }

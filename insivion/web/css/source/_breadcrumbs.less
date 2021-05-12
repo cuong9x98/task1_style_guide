@@ -12,6 +12,15 @@
         .lib-breadcrumbs();
     }
     .breadcrumbs {
+        &:not(.home){
+            a,strong {
+                font-family: @font-family-name__base;
+                font-size: 10px;
+                letter-spacing: 0;
+                line-height: 16px;
+                color: @color-gray60; 
+            }
+        }
         .home  {
             a {
                 color: @color-gray20;
@@ -28,13 +37,7 @@
                 text-align: center;
             }
         }
-        .product{
-            font-family: @font-family-name__base;
-            font-size: 10px;
-            letter-spacing: 0;
-            line-height: 16px;
-            color: @color-gray60;
-        }
+       
         
     }
 }
