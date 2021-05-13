@@ -7,8 +7,67 @@
 -->
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-         <move element="product.info.overview" destination="product.info.main" before="-" />
-         <container name="product.info.social" label="Product social links container" htmlTag="div" htmlClass="product-social-links" remove="true">
-        </container>
+        <move element="product.info.overview" destination="product.info.main" before="-" />
+        <container name="product.info.social" label="Product social links container" htmlTag="div" htmlClass="product-social-links" remove="true"></container>
+        <referenceBlock name="product.info.sku" remove="true" />
+        <!-- <referenceBlock name="product.info.stock.sku" remove="true"/> -->
+        <move element="catalog.product.related" destination="sidebar.additional" before="-" />
+        <!-- Get npm product -->
+        <referenceContainer name="content">
+            <referenceContainer name="product.info.main" htmlTag="div" htmlClass="product-info-main" before="-">
+                <block class="Magento\Framework\View\Element\Template" name="id.product" template="Magento_Catalog::product/id_product.phtml" group="choose_file" before="product.info.price"/>
+                <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.demo" template="product/view/demo.phtml" after="id.product">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getDemoLink</argument>
+                    <argument name="at_code" xsi:type="string">demo_link</argument>
+                    <argument name="css_class" xsi:type="string">demo_link</argument>
+                    <argument name="at_label" xsi:type="string"></argument>
+                    <argument name="add_attribute" xsi:type="string">itemprop="demo_link"</argument>
+                </arguments>
+            </block>
+            </referenceContainer>
+        </referenceContainer>\
+        <!-- Tab 1 -->
+        <referenceBlock class="Magento\Catalog\Block\Product\View\Description" name="product.info.description" as="description" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info">
+            <arguments>
+                <argument name="at_call" xsi:type="string">getDescription</argument>
+                <argument name="at_code" xsi:type="string">description</argument>
+                <argument name="css_class" xsi:type="string">description</argument>
+                <argument name="at_label" xsi:type="string">none</argument>
+                <argument name="title" translate="true" xsi:type="string">Description</argument>
+                <argument name="sort_order" xsi:type="string">10</argument>
+            </arguments>
+        </referenceBlock>
+        <!-- Tab 2 -->
+        <referenceBlock class="Magento\Catalog\Block\Product\View\Attributes" name="product.attributes" as="additional" template="Magento_Catalog::product/view/attributes.phtml" group="detailed_info">
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Specifications</argument>
+                <argument name="sort_order" xsi:type="string">20</argument>
+            </arguments>
+        </referenceBlock>
+        <!-- Tab 3,Tab4-->
+       <referenceBlock name="product.info.details">                
+            <block class="Magento\Catalog\Block\Product\View" name="tab-dowload" template="Magento_Catalog::product/view/downloads.phtml" group="detailed_info">
+                <arguments>
+                <argument name="at_call" xsi:type="string">getDownload</argument>
+                <argument name="at_code" xsi:type="string">tab_download</argument>
+                <argument name="css_class" xsi:type="string">tab_download</argument>
+                <argument name="add_attribute" xsi:type="string">itemprop="tab_download"</argument>
+                <argument name="title" translate="true" xsi:type="string">Download</argument>
+                <argument name="sort_order" xsi:type="string">30</argument>
+                </arguments>
+            </block>
+             <block class="Magento\Catalog\Block\Product\View" name="tab-return" template="Magento_Catalog::product/view/return.phtml" group="detailed_info">
+                <arguments>
+                <argument name="at_call" xsi:type="string">getReturn</argument>
+                <argument name="at_code" xsi:type="string">tab_return</argument>
+                <argument name="css_class" xsi:type="string">tab_return</argument>
+                <argument name="add_attribute" xsi:type="string">itemprop="tab_return"</argument>
+                <argument name="title" translate="true" xsi:type="string">Shipping &amp; Returns</argument>
+                <argument name="sort_order" xsi:type="string">40</argument>
+                </arguments>
+            </block>
+            
+        </referenceBlock>
     </body>
 </page>
