@@ -18,7 +18,6 @@
     button {
         &:not(.primary) {
             .lib-css(box-shadow, @button__shadow);
-
             &:active {
                 .lib-css(box-shadow, @button__shadow-active);
             }
@@ -40,7 +39,13 @@
     }
 
     .action.primary {
+        height: 54px;
         .lib-button-primary();
+        &:before {
+            content: '\f07a';
+            font-family: @font_awesome;
+            font-weight: 900;
+        }
     }
     button {
         &:disabled {
@@ -58,20 +63,7 @@
             border: 0px;
         }
     }
-    .primary {
-        height: 48px;
-        width: 132px;
-        border-radius: 3px;
-        background-color: #00AFF0;
-        color: #FFFFFF;
-        font-family: @font-family-name__base;
-        font-size: 15px;
-        font-weight: bold;
-        letter-spacing: 0;
-        line-height: 15px;
-        text-align: center;
-        border: 0px;
-    }
+   
     .secondary {
         height: 48px;
         width: 132px;

@@ -38,7 +38,7 @@
                 <argument name="sort_order" xsi:type="string">10</argument>
             </arguments>
         </block>
-        <!-- Tab 3,Tab4-->
+        <!-- Tab 2,3,4-->
        <referenceBlock name="product.info.details">
             <block class="Magento\Catalog\Block\Product\View" name="tab-specification" template="Magento_Catalog::product/view/specification.phtml" group="detailed_info">
                 <arguments>
@@ -71,5 +71,9 @@
                 </arguments>
             </block>
         </referenceBlock>
+        <!-- Contact customer -->
+        <referenceContainer name="product.info.main" htmlTag="div" htmlClass="product-info-main" >
+            <block class="Magento\Framework\View\Element\Template" name="help.customer" template="Magento_Catalog::product/view/help_customer.phtml" group="choose_file" after="product.info"/>
+        </referenceContainer>
     </body>
 </page>
